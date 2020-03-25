@@ -1,0 +1,27 @@
+#!/usr/bin/env testml
+
+
+*in.up-words == *out
+
+
+=== One lower-case word
+--- in:  foo
+--- out: Foo
+
+
+=== Many lower-case words
+--- in:  i like pie
+--- out: I Like Pie
+
+
+=== Various input cases
+--- in:  Ingy dot Net haTes YAML
+--- out: Ingy Dot Net Hates Yaml
+
+
+=== Whitespace variations
+--- in
+foo    bar
+
+    baz
+--- out: Foo Bar Baz
