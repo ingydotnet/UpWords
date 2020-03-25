@@ -1,0 +1,42 @@
+=================================== Testing Perl ===================================
+source .testml/.rc && \
+TESTML_RUN=perl5 \
+prove -lv test/*.tml
+test/test1.tml .. 
+ok 1 - One lower-case word
+ok 2 - Many lower-case words
+ok 3 - Various input cases
+ok 4 - Whitespace variations
+1..4
+ok
+All tests successful.
+Files=1, Tests=4,  0 wallclock secs ( 0.02 usr  0.00 sys +  0.03 cusr  0.00 csys =  0.05 CPU)
+Result: PASS
+
+=================================== Testing Python ===================================
+source .testml/.rc && \
+TESTML_RUN=python \
+PYTHONPATH=lib \
+testml test/*.tml
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK
+
+=================================== Testing Bash ===================================
+source .testml/.rc && \
+TESTML_RUN=bash \
+PATH="./lib:$PATH" \
+prove -lv test/*.tml
+test/test1.tml .. 
+ok 1 - One lower-case word
+ok 2 - Many lower-case words
+ok 3 - Various input cases
+ok 4 - Whitespace variations
+1..4
+ok
+All tests successful.
+Files=1, Tests=4,  1 wallclock secs ( 0.02 usr  0.00 sys +  0.03 cusr  0.01 csys =  0.06 CPU)
+Result: PASS
+

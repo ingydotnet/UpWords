@@ -1,22 +1,30 @@
 SHELL := bash
 
-INFO = ===================================
+XXX = ===================================
 
-test: .testml test-perl test-python
+test: .testml test-perl test-python test-bash
 
 test-perl:
-	@echo $(INFO) Testing Perl:
+	@echo $(XXX) Testing Perl $(XXX)
 	source .testml/.rc && \
 	TESTML_RUN=perl5 \
 	prove -lv test/*.tml
 	@echo
 
 test-python:
-	@echo $(INFO) Testing Python:
+	@echo $(XXX) Testing Python $(XXX)
 	source .testml/.rc && \
 	TESTML_RUN=python \
 	PYTHONPATH=lib \
 	testml test/*.tml
+	@echo
+
+test-bash:
+	@echo $(XXX) Testing Bash $(XXX)
+	source .testml/.rc && \
+	TESTML_RUN=bash \
+	PATH="./lib:$$PATH" \
+	prove -lv test/*.tml
 	@echo
 
 clean:
